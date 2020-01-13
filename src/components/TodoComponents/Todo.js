@@ -3,7 +3,12 @@ import React from "react";
 const Todo = ({ item, toggleCompleted }) => {
   return (
     <div>
-      <p onClick={() => toggleCompleted(item.id)}>{item.task}</p>
+      <p
+        className={item.completed.toString()}
+        onClick={() => toggleCompleted(item.id)}
+      >
+        {item.task}
+      </p>
     </div>
   );
 };

@@ -6,9 +6,12 @@ import React from "react";
 //components
 import Todo from "./Todo";
 
+//style
+import "./Todo.scss";
+
 const TodoList = ({ todoList, toggleCompleted }) => {
   return (
-    <ul>
+    <ul className="list">
       {todoList.map(item => {
         return (
           <li key={item.id}>

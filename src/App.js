@@ -6,6 +6,10 @@ import { data } from "./data";
 //components
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
+import TodoSearch from "./components/TodoComponents/TodoSearch";
+
+//styled-components
+import { TodoStyles } from "./Styles";
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -38,18 +42,21 @@ class App extends React.Component {
 
   //function to add new item
   addTodo = itemName => {
-    this.setState({
-      todoList: [
-        ...this.state.todoList,
-        {
-          task: itemName,
-          id: `1${this.state.todoList.length}20`,
-          completed: false
-        }
-      ]
-    });
+    if (itemName !== "") {
+      this.setState({
+        todoList: [
+          ...this.state.todoList,
+          {
+            task: itemName,
+            id: `1${this.state.todoList.length + 1}20`,
+            completed: false
+          }
+        ]
+      });
+    }
   };
 
+  //function to clear completed: true items
   clearCompleted = () => {
     this.setState({
       todoList: this.state.todoList.filter(item => {
@@ -58,14 +65,26 @@ class App extends React.Component {
     });
   };
 
+  // function to update state based on search query made from TodoSearch
+  searchQuery = query => {
+    this.setState({
+      todoList: this.state.todoList.filter(item => {
+        return item.task.toLowerCase().includes(query.toLowerCase());
+      })
+    });
+  };
+
   render() {
     return (
-      <div>
+      <div className="App">
+        <TodoStyles />
         <div className="forms-container">
+          <h2 className="title">My Todos</h2>
           <TodoForm
             addTodo={this.addTodo}
             clearCompleted={this.clearCompleted}
           />
+          <TodoSearch searchQuery={this.searchQuery} />
         </div>
         <div className="list-container">
           <TodoList
