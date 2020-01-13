@@ -26,18 +26,19 @@ export const TodoStyles = createGlobalStyle`
 
     .forms-container {
         background: #175451;
-        height: 400px;
+        height: 300px;
         width: 25%;
         padding: 10px 20px;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: flex-start;
         align-items: center;
         flex-direction: column;
-        border: 5px solid #964b00;
+        border: 10px solid #964b00;
     }
 
     .list-container {
         width: 70%;
+        height: 100vh;
         border: 2px solid black;
         padding: 10px 20px;
         background-color: #964b00;

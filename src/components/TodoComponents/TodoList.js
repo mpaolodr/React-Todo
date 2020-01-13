@@ -14,9 +14,7 @@ const TodoList = ({ todoList, toggleCompleted }) => {
     <ul className="list">
       {todoList.map(item => {
         return (
-          <li key={item.id}>
-            <Todo item={item} toggleCompleted={toggleCompleted} />
-          </li>
+          <Todo key={item.id} item={item} toggleCompleted={toggleCompleted} />
         );
       })}
     </ul>
