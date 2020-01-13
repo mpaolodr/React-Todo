@@ -3,13 +3,16 @@
 
 import React from "react";
 
-const TodoList = ({ todoList }) => {
+//components
+import Todo from "./Todo";
+
+const TodoList = ({ todoList, toggleCompleted }) => {
   return (
     <ul>
       {todoList.map(item => {
         return (
           <li key={item.id}>
-            <p>{item.task}</p>
+            <Todo item={item} toggleCompleted={toggleCompleted} />
           </li>
         );
       })}

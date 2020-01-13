@@ -39,7 +39,10 @@ class App extends React.Component {
     return (
       <div>
         <div className="list-container">
-          <TodoList todoList={this.state.todoList} />
+          <TodoList
+            todoList={this.state.todoList}
+            toggleCompleted={this.toggleCompleted}
+          />
         </div>
       </div>
     );
