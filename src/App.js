@@ -5,6 +5,7 @@ import { data } from "./data";
 
 //components
 import TodoList from "./components/TodoComponents/TodoList";
+import TodoForm from "./components/TodoComponents/TodoForm";
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -35,9 +36,26 @@ class App extends React.Component {
     });
   };
 
+  //function to add new item
+  addTodo = itemName => {
+    this.setState({
+      todoList: [
+        ...this.state.todoList,
+        {
+          task: itemName,
+          id: `1${this.state.todoList.length}20`,
+          completed: false
+        }
+      ]
+    });
+  };
+
   render() {
     return (
       <div>
+        <div className="forms-container">
+          <TodoForm addTodo={this.addTodo} />
+        </div>
         <div className="list-container">
           <TodoList
             todoList={this.state.todoList}
