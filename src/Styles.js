@@ -27,7 +27,7 @@ export const TodoStyles = createGlobalStyle`
     .forms-container {
         background: #175451;
         height: 300px;
-        width: 25%;
+        width: 28%;
         padding: 10px 20px;
         display: flex;
         justify-content: flex-start;
@@ -38,7 +38,7 @@ export const TodoStyles = createGlobalStyle`
 
     .list-container {
         width: 70%;
-        height: 100vh;
+        min-height: 100vh;
         border: 2px solid black;
         padding: 10px 20px;
         background-color: #964b00;

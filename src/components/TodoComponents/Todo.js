@@ -7,7 +7,6 @@ const Todo = ({ item, toggleCompleted }) => {
   useEffect(() => {
     TweenMax.from(indList.current, 0.5, {
       y: -20,
-
       ease: "Bounce.easeOut"
     });
   }, []);
