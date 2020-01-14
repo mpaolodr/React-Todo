@@ -42,7 +42,13 @@ class App extends React.Component {
 
   //function to add new item
   addTodo = itemName => {
-    if (itemName !== "") {
+    //array containing all converted task names to compare itemName to
+    const indTask = this.state.todoList.map(task => {
+      return task.task.toLowerCase();
+    });
+
+    if (itemName !== "" && indTask.indexOf(itemName.toLowerCase()) === -1) {
+      console.log(true);
       this.setState({
         todoList: [
           ...this.state.todoList,
